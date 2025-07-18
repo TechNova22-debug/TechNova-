@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commande - TechNova RDC</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fd;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .h2 {
+      color: #222;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    #commandeForm, .summary {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Empêche tout dépassement */
+    }
+
+    .label2 {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    #adresse, #commune {
+      width: calc(100% - 22px); /* Ajustement pour éviter tout dépassement */
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    #adresse:focus, #commune:focus {
+      border-color: #5e72e4;
+    }
+
+    .summary h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .summary-item:last-child {
+      for: none;
+    }
+
+    .total {
+      text-align: right;
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 10px;
+      color: #222;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-btn i {
+      font-size: 20px;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      #commandeForm, .summary {
+        padding: 15px;
+      }
+
+      .h2 {
+        font-size: 20px;
+      }
+
+      .whatsapp-btn {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div id="Commande">
+  <h2 class="h2">Passer une commande chez TechNova RDC</h2>
+
+  <form id="commandeForm">
+    <label for="adresse" class="label2">Adresse (Mbujimayi uniquement)</label>
+    <input type="text" id="adresse" required placeholder="Ex: Av. Du gouverneur N⁰16">
+
+    <label for="commune" classe="label2">Commune</label>
+    <select id="commune" required>
+      <option value="">-- Choisissez une commune --</option>
+      <option value="Bipemba">Bipemba</option>
+      <option value="Dibindi">Dibindi</option>
+      <option value="Diulu">Diulu</option>
+      <option value="Kanshi">Kanshi</option>
+      <option value="Muya">Muya</option>
+    </select>
+  </form>
+
+  <div class="summary">
+    <h3>Résumé de la commande</h3>
+    <div id="produit1">
+      <div class="summary-item">
+        <span>Écouteurs Bluetooth</span>
+        <span>15$</span>
+      </div>
+      <div class="summary-item">
+        <span>Chargeur rapide</span>
+        <span>10$</span>
+      </div>
+      <div class="summary-item">
+        <span>Coque iPhone</span>
+        <span>5$</span>
+      </div>
+    </div>
+    <div class="total" id="total">Total: 30$</div>
+  </div>
+
+  <button class="whatsapp-btn" onclick="envoyerCommande()">
+    <i class="fab fa-whatsapp"></i> Nous contacter sur WhatsApp
+  </button>
+</div>
+  <script>
+    function envoyerCommande() {
+      // Nom par défaut
+      const nom = "Othniel Kalambayi";
+      const adresse = document.getElementById('adresse').value.trim();
+      const commune = document.getElementById('commune').value;
+
+      if (!adresse || !commune) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+      }
+
+      const produit1 = [
+        { nom: "Écouteurs Bluetooth", prix: 15 },
+        { nom: "Chargeur rapide", prix: 10 },
+        { nom: "Coque iPhone", prix: 5 }
+      ];
+
+      let message = `🛒 *Commande TechNova RDC*\n\n`;
+      message += `👤 *Client*: ${nom}\n`;
+      message += `🏠 *Adresse*: ${adresse}, ${commune}, Mbujimayi\n\n`;
+      message += `📦 *produit1 commandés*:\n`;
+
+      produit1.forEach(p => {
+        message += `- ${p.nom}: ${p.prix}$\n`;
+      });
+
+      message += `\n💰 *Total*: 30$\n\n`;
+      message += `📞 Merci de nous avoir fait confiance. Nous vous contacterons pour confirmer la commande.`;
+
+      alert("Vous serez redirigé vers WhatsApp pour finaliser votre commande.");
+      const numero = "243840938508"; // Ton numéro
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>

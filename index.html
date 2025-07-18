@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TechNova RDC</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="accueil">
+            <header class="head">
+                <div class="logo"><h1>TechNova RDC</h1></div>
+                <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+                <div class="nav-links">
+                    <a href="#" onclick="Accueil()">Accueil</a>
+                    <a href="#" onclick="Boutique()">Boutique</a>
+                    <a href="#" onclick="About ()">À propos</a>
+                    <a href="#" class="cart" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span></a>
+                  <!--<a href="#">Se connecter</a>-->
+                  <button id="connexion" onclick="toggleMenu1()">Se connecter</button>
+                </div>
+            </header>
+               <!-- Menu mobile -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#" onclick="Accueil(), toggleMenu()"><i class="fas fa-home"></i>Accueil</a>
+                <a href="#" onclick="Boutique(), toggleMenu()"><i class="fas fa-store"></i>Boutique</a>
+                <a href="#" onclick="About(), toggleMenu()"><i class="fas fa-info-circle"></i>À propos</a>
+                <a href="#" onclick="toggleCart(), toggleMenu()"><i class="fas fa-shopping-cart"></i >Panier <span id="cart-count1">(0)</span></a>
+                <a href="#" onclick="toggleMenu1()" class="connect" id="Connex">Se connecter</a>
+            </div>
+
+            <!-- Fond sombre -->
+            <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Slider -->
+    <div id="message1">🔥 Livraison gratuite,<br> Payment à la livraison!</div>
+    <div class="slider-container" id="accueil-slider">
+        <div class="slider" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide" id="img1">
+                <span class="promo-badge">-20% Promo</span>
+                <div class="promo-text">Air Nike - Haute performance</div>
+                <button class="promo-btn" onclick="Boutique(), ImgA()">Voir le produit</button>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" id ="img2">
+                <span class="promo-badge">-15% Promo</span>
+                <div class="promo-text">AirPods Pro 2 - Confort exceptionnel</div>
+                <button class="promo-btn" onclick="Boutique(), ImgB()">Voir le produit</button>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" id="img3">
+                <span class="promo-badge">-30% Promo</span>
+                <div class="promo-text">Coque pour téléphone - Edition limitée</div>
+                <button class="promo-btn" onclick="Boutique(), ImgC()">Voir le produit</button>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+            <!--Page de connexion-->
+
+    <!-- Fond sombr e -->
+    <div class="overlay1" id="overlay1" onclick="closePopup()"></div>
+
+    <!-- Popup Connexion/Inscription -->
+    <div class="login-popup" id="loginPopup">
+        <button class="close-btn" onclick="closePopup(), toggleMenu()">&times;</button>
+        <h2 id="popupTitle">Connexion </h2>
+        <p id="popupSubtitle">Connectez-vous à votre compte</p>
+
+        <div class="tabs">
+            <div class="tab active" id="loginTab" onclick="switchTab('login')">Connexion</div>
+            <div class="tab" id="registerTab" onclick="switchTab('register')">Inscription</div>
+        </div>
+
+        <!-- Formulaire de Connexion -->
+        <div class="form active" id="loginForm">
+            <input type="email" placeholder="Email" id="login-email" required>
+            <input type="password" placeholder="Mot de passe" id="login-password" required>
+            <label class="rememberMe"><input type="checkbox" id="rememberMe"> <span>Se souvenir de moi</span></label>
+            <div id="form-message1" class="error"></div>
+            <br>
+            <button class="submit-btn" onclick="login()">Se connecter</button>
+        </div>
+
+        <!-- Formulaire d'Inscription -->
+        <div class="form" id="registerForm">
+            <input type="text" id="signup-username" placeholder="Nom" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Mot de passe" required>
+            <div id="form-message" class="error"></div>
+            <br>
+            <button class="submit-btn" onclick="signUp()">S'inscrire</button>
+        </div>
+    </div>
+    <nav>
+            <!-- Liste des articles -->
+<div id="accueil-produit">
+    <div>
+        <h2 class="prod"> Produits populaires </h2><br>
+        <div class="pop-prod">
+            <div class="toast" id="toast"></div>
+            <div class="grid" id="grid"></div>
+        </div>
+    </div>
+    <script src="produit.js"></script>
+    
+  <!-- Slider -->
+  <div id="body">
+  <div class="slider-container3">
+    <div class="card3 visible3">
+      <i class="fas fa-shield-halved"></i>
+      <h2>Garantie Totale</h2>
+      <p>Satisfaction garantie ou remboursé</p>
+    </div>
+    <div class="card3">
+      <i class="fas fa-gem"></i>
+      <h2>Qualité Premium</h2>
+      <p>Des produits soigneusement sélectionnés</p>
+    </div>
+    <div class="card3">
+      <i class="fas fa-truck-fast"></i>
+      <h2>Livraison Express</h2>
+      <p>Recevez vos commandes rapidement</p>
+    </div>
+  </div>
+
+  <!-- Bouton -->
+  <button class="btn3" onclick="Boutique()"><i class="fas fa-lock"></i> Consulter nos produits</button>
+</div>
+</div>
+            <!-- Boutique -->
+<div id="Boutique" style="display:none; margin-top:4em;">
+        <h2 class="prod">Notre Boutique</h2>
+    <div class="control-bar">
+        <input class="search-input" id="search" type="text" placeholder="Rechercher un produit...">
+        <div class="categories" id="categories">
+            <button class="cat-btn active" data-cat="tout">Tout</button>
+            <button class="cat-btn" data-cat="electronique">Électronique</button>
+            <button class="cat-btn" data-cat="homme">Homme</button>
+            <button class="cat-btn" data-cat="femme">Femme</button>
+            <button class="cat-btn" data-cat="autres">Autres</button>
+        </div>
+    </div>
+    <div class="pop-prod">
+        <div class="toast" id="toast1"></div>
+        <div class="grid" id="grid1"></div>
+    </div>
+    <div class="contact-whatsapp">
+        <h3>Vous ne trouvez pas ce que vous cherchez ?</h3>
+        <div class="contact-desc">Écrivez-nous sur WhatsApp&nbsp;! Décrivez ce que vous cherchez ou envoyez une photo, nous vous répondrons rapidement.</div>
+        <form id="whatsappForm">
+            <label for="message">Message&nbsp;:</label>
+            <textarea id="message" rows="2" placeholder="Décrivez votre besoin..." required></textarea>
+            <label for="photo">Photo (optionnel)&nbsp;:</label>
+            <input type="file" id="photo" accept="image/*" capture="environment">
+            <button type="submit">
+                <svg fill="#fff" width="21" height="21" viewBox="0 0 32 32"><path d="M16 3C8.268 3 2 9.268 2 17c0 2.823.81 5.46 2.225 7.67L2 29.999l5.496-2.26C9.933 28.229 12.891 29 16 29c7.732 0 14-6.268 14-14S23.732 3 16 3zm0 24c-2.719 0-5.261-.71-7.429-1.944l-.53-.305-3.263 1.34.69-3.18-.343-.517C4.16 19.857 3.5 18.478 3.5 17c0-6.893 5.607-12.5 12.5-12.5S28.5 10.107 28.5 17 22.893 27 16 27zm6.575-7.383l-1.843-.527c-.242-.069-.5-.012-.679.154l-.741.68a9.341 9.341 0 0 1-4.265-4.265l.68-.741a.748.748 0 0 0 .154-.679l-.527-1.843A.749.749 0 0 0 15.575 11h-2.35c-.414 0-.75.336-.75.75 0 6.351 5.149 11.5 11.5 11.5.414 0 .75-.336.75-.75v-2.35a.749.749 0 0 0-.576-.733z"></path></svg>
+                Envoyer sur WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<!-- pour passer la commande-->
+<div id="Commande">
+  <h2 class="h2">Passer une commande chez TechNova RDC</h2>
+
+  <form id="commandeForm">
+    <label for="adresse" class="label2">Adresse (Mbujimayi uniquement)</label>
+    <input type="text" id="adresse" required placeholder="Ex: Av. Du gouverneur N⁰16">
+
+    <label for="commune" classe="label2">Commune</label>
+    <select id="commune" required>
+      <option value="">-- Choisissez une commune --</option>
+      <option value="Bipemba">Bipemba</option>
+      <option value="Dibindi">Dibindi</option>
+      <option value="Diulu">Diulu</option>
+      <option value="Kanshi">Kanshi</option>
+      <option value="Muya">Muya</option>
+    </select>
+  </form>
+
+  <div class="summary">
+    <h3>Résumé de la commande</h3>
+    <div id="produit1">
+      <div id="cart-items2"></div>
+    </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span>$<span id="cart-total1">0.00</span></span>
+            </div>
+  </div>
+
+  <button class="whatsapp-btn" onclick="envoyerCommande()">
+    <i class="fab fa-whatsapp"></i> Nous contacter sur WhatsApp
+  </button></pkkquq>
+</div>
+    </nav>
+    <!-- zone à propos de l'entreprise'-->
+<iframe src="about.html" id="about" width="100%" style="border: none;"></iframe>
+    <!-- Panier -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Votre Panier</h3>
+            <span class="close-btn1" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span>$<span id="cart-total">0.00</span></span>
+            </div>
+            <button class="checkout-btn" onclick="passCommande()">Passer commande</button>
+        </div>
+    </div>
+
+    <footer>
+            <div class="footer">
+            <!-- Logo et slogan -->
+            <div class="footer-section">
+                <h4>TechNova RDC</h4>
+                <p>La technologie au cœur du progrès</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/243840314159" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="mailto:tech28059@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Liens rapides (liste simple) -->
+            <div class="footer-section links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li>Accueil</li>
+                    <li>Boutique</li>
+                    <li>À propos</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recevez nos dernières offres et nouveautés.</p>
+                <div class="newsletter">
+                    <input type="email" id="newsletterEmail" placeholder="Votre email">
+                    <button onclick="subscribe()">S'inscrire</button>
+                    <div class="confirmation" id="confirmationMessage"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 TechNova RDC. Tous droits réservés.
+        </div>
+    </footer>
+        <!--le script -->
+        <script src="script.js"></script>
+        <script>
+            function showPopup() {
+                document.getElementById('overlay1').style.display = 'block';
+                document.getElementById('loginPopup').style.display = 'block';
+            }
+
+            function closePopup() {
+                document.getElementById('overlay1').style.display = 'none';
+                document.getElementById('loginPopup').style.display = 'none';
+            }
+
+            function switchTab(tab) {
+                // Tabs
+                document.getElementById('loginTab').classList.remove('active');
+                document.getElementById('registerTab').classList.remove('active');
+                // Forms
+                document.getElementById('loginForm').classList.remove('active');
+                document.getElementById('registerForm').classList.remove('active');
+
+                if (tab === 'login') {
+                    document.getElementById('loginTab').classList.add('active');
+                    document.getElementById('loginForm').classList.add('active');
+                    document.getElementById('popupTitle').innerText = 'Connexion';
+                    document.getElementById('popupSubtitle').innerText = 'Connectez-vous à votre compte';
+                } else {
+                    document.getElementById('registerTab').classList.add('active');
+                    document.getElementById('registerForm').classList.add('active');
+                    document.getElementById('popupTitle').innerText = 'Inscription';
+                    document.getElementById('popupSubtitle').innerText = 'Créez votre compte';
+                }
+            }
+            function subscribe() {
+        const emailInput = document.getElementById('newsletterEmail').value.trim();
+        const confirmation = document.getElementById('confirmationMessage');
+
+        if (emailInput === '' || !emailInput.includes('@')) {
+            confirmation.style.color = 'red';
+            confirmation.innerText = 'Veuillez entrer un email valide.';
+            return;
+        }
+
+        confirmation.style.color = '#4CAF50';
+        confirmation.innerText = 'Inscription réussie ! Merci.';
+
+        // Reset après 3 secondes (simulation)
+        setTimeout(() => {
+            confirmation.innerText = '';
+            document.getElementById('newsletterEmail').value = '';
+        }, 3000);
+        
+        }
+            // pour le dessu de la page d'accueil
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const slider = document.getElementById('slider');
+
+        function showSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+
+            slider.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+
+            slides.forEach(slide => slide.querySelector('.promo-text').style.animation = 'none'); // Reset animation
+            void slides[index].querySelector('.promo-text').offsetWidth; // Trigger reflow
+            slides[index].querySelector('.promo-text').style.animation = 'fadeIn 1s ease forwards';
+
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        setInterval(nextSlide, 5000); // Slide automatique toutes les 5 secondes
+        // message publicitaire
+        const message = document.getElementById('message1');
+
+        function showMessage() {
+            // Affiche le message avec animation
+            message.classList.remove('slide-out');
+            message.classList.add('slide-in');
+
+            // Cache le message après 3 secondes
+            setTimeout(() => {
+                message.classList.remove('slide-in');
+                message.classList.add('slide-out');
+            }, 4000); // 3 secondes visibles
+        }
+
+        // Afficher le message une première fois
+        showMessage();
+
+        // Répéter l'affichage toutes les 33 secondes (3s + 30s d'attente)
+        setInterval(showMessage, 35000);
+        </script>
+        </div>
+        <script>
+  window.addEventListener('message', (event) => {
+    if (event.data.type === 'resize-iframe') {
+      const iframe = document.getElementById(event.data.id);
+      if (iframe) {
+        iframe.style.height = event.data.height + 'px';
+      }
+    }
+  });
+</script>
+    </body>
+</html>
