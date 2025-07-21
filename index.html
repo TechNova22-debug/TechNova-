@@ -384,5 +384,24 @@
     }
   });
 </script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+  // Initialisation de OneSignal
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "TON_APP_ID", // Remplace par ton App ID OneSignal
+      safari_web_id: "TON_SAFARI_WEB_ID", // (Optionnel) pour le support Safari
+      notifyButton: {
+        enable: true, // Affiche le bouton de notification sur ton site
+      },
+    });
+
+    // Gérer les événements (par exemple, quand l'utilisateur s'abonne)
+    OneSignal.on('subscriptionChange', function(isSubscribed) {
+      console.log("L'utilisateur est abonné :", isSubscribed);
+    });
+  });
+</script>
     </body>
 </html>
