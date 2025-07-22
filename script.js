@@ -197,7 +197,8 @@ produits
         </svg>
       </button>
       <span class="discount">-${pourcentage}%</span>
-      <img src="${p.image}" alt="${p.nom}">
+      <img src="https://effortless-cassata-2d19ca.netlify.app/${produit.image}"
+      alt="${p.nom}">
     </div>
     <div class="product-title">${p.nom}</div>
     <div class="product-description">${p.description}</div>
