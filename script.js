@@ -265,8 +265,8 @@ showToast(`${p.nom} ajouté au panier 🛒`);
           <div class="product-title">${p.nom}</div>
           <div class="product-description">${p.description}</div>
           <div class="prices">
-            <span class="old-price">${p.prix}€</span>
-            <span class="new-price">${p.reduction}€</span>
+            <span class="old-price">${p.prix}$</span>
+            <span class="new-price">${p.reduction}$</span>
           </div>
           <button class="add-btn2">Ajouter au panier</button>
         `;
