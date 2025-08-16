@@ -15,7 +15,7 @@ searchInput.dispatchEvent(new Event('input')); // ou 'keyup' selon ton code
 }
 //localStorage.removeItem('cart');
 const produits = [
-  { id: 1, nom: "Gourde isotherme", description: "Conserve boisson chaude ou froide.", image: "Gourde1.jpg", prix: 17, reduction: 12, quantite: 0, type : "populaire", categorie:"autres"},
+  { id: 1, nom: "Gourde isotherme", description: "Conserve boisson chaude ou froide.", image: "Gourde1.jpg", prix: 18, reduction: 13, quantite: 0, type : "populaire", categorie:"autres"},
   { id: 2, nom: "Chaussure Campus", description: "Confort et style pour toutes vos sorties.", image: "Campus.jpg", prix: 25, reduction: 20, quantite: 0, type : "populaire", categorie:"homme"},
   { id: 3, nom: "Nike noir", description: "Style sobre, confort assuré.", image: "Nike-noir1.jpg", prix: 20, reduction: 16, quantite: 0, type : "populaire", categorie:"homme"},
   { id: 4, nom: "Baskets blanches", description: "Elegance et confort au quotidien.", image: "Basket-blanche.jpg", prix: 30, reduction: 20, quantite: 0, type : "populaire", categorie:"homme" },
