@@ -268,8 +268,19 @@
             &copy; 2025 TechNova RDC. Tous droits réservés.
         </div>
     </footer>
-        <!--le script -->
-        <script src="script.js"></script>
+        <!--le script - Refactorisé -->
+        <script src="script-refactored.js"></script>
+        <!-- Lien Admin Panel -->
+        <script>
+            const adminBtn = document.createElement('a');
+            adminBtn.href = 'admin-login.html';
+            adminBtn.title = 'Admin Panel';
+            adminBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 999; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+            adminBtn.innerHTML = '<i class="fas fa-cog"></i>';
+            adminBtn.addEventListener('mouseover', function() { this.style.transform = 'scale(1.1)'; });
+            adminBtn.addEventListener('mouseout', function() { this.style.transform = 'scale(1)'; });
+            document.body.appendChild(adminBtn);
+        </script>
         <script>
             function showPopup() {
                 document.getElementById('overlay1').style.display = 'block';
